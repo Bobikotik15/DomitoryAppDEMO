@@ -1,0 +1,397 @@
+﻿<UserControl x:Class="DomitoryAppDEMO.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24" Name="MainPanel">
+            <!-- Заголовок -->
+            <StackPanel Margin="0 0 0 24">
+                <TextBlock Text="Панель управления" 
+                           FontSize="28" 
+                           FontWeight="SemiBold"
+                           Foreground="#1F2937"/>
+                <TextBlock Text="Общая статистика и ключевые показатели" 
+                           Foreground="#6B7280" 
+                           FontSize="16"
+                           Margin="0 4 0 0"/>
+            </StackPanel>
+
+            <!-- Карточки статистики -->
+            <Grid Margin="0 0 0 24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Всего жильцов -->
+                <Border Grid.Column="0" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="20"
+                        Margin="0 0 12 0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                            <Border Width="44" 
+                                    Height="44" 
+                                    Background="#E0E7FF" 
+                                    CornerRadius="8">
+                                <TextBlock Text="👥" 
+                                           FontSize="20"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Margin="12 0 0 0">
+                                <TextBlock x:Name="TotalResidentsText" 
+                                           Text="156" 
+                                           FontSize="24" 
+                                           FontWeight="SemiBold"
+                                           Foreground="#3B82F6"/>
+                                <TextBlock Text="Всего жильцов" 
+                                           Foreground="#6B7280" 
+                                           FontSize="13"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock Text="+5 за месяц" 
+                                   Foreground="#10B981" 
+                                   FontSize="12"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Занято комнат -->
+                <Border Grid.Column="1" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="20"
+                        Margin="6 0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                            <Border Width="44" 
+                                    Height="44" 
+                                    Background="#F3E8FF" 
+                                    CornerRadius="8">
+                                <TextBlock Text="🛏️" 
+                                           FontSize="20"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Margin="12 0 0 0">
+                                <TextBlock x:Name="OccupancyRateText" 
+                                           Text="89%" 
+                                           FontSize="24" 
+                                           FontWeight="SemiBold"
+                                           Foreground="#8B5CF6"/>
+                                <TextBlock Text="Заполняемость" 
+                                           Foreground="#6B7280" 
+                                           FontSize="13"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock x:Name="RoomsInfoText" 
+                                   Text="124 из 140 комнат" 
+                                   Foreground="#6B7280" 
+                                   FontSize="12"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Месячный доход -->
+                <Border Grid.Column="2" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="20"
+                        Margin="6 0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                            <Border Width="44" 
+                                    Height="44" 
+                                    Background="#D1FAE5" 
+                                    CornerRadius="8">
+                                <TextBlock Text="💰" 
+                                           FontSize="20"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Margin="12 0 0 0">
+                                <TextBlock x:Name="MonthlyIncomeText" 
+                                           Text="452,340 ₽" 
+                                           FontSize="24" 
+                                           FontWeight="SemiBold"
+                                           Foreground="#10B981"/>
+                                <TextBlock Text="Доход за месяц" 
+                                           Foreground="#6B7280" 
+                                           FontSize="13"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock Text="+12% к прошлому месяцу" 
+                                   Foreground="#10B981" 
+                                   FontSize="12"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Задолженность -->
+                <Border Grid.Column="3" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="20"
+                        Margin="12 0 0 0">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                            <Border Width="44" 
+                                    Height="44" 
+                                    Background="#FEE2E2" 
+                                    CornerRadius="8">
+                                <TextBlock Text="⚠️" 
+                                           FontSize="20"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Margin="12 0 0 0">
+                                <TextBlock x:Name="TotalDebtText" 
+                                           Text="67,890 ₽" 
+                                           FontSize="24" 
+                                           FontWeight="SemiBold"
+                                           Foreground="#EF4444"/>
+                                <TextBlock Text="Задолженность" 
+                                           Foreground="#6B7280" 
+                                           FontSize="13"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock x:Name="DebtorsCountText" 
+                                   Text="12 должников" 
+                                   Foreground="#6B7280" 
+                                   FontSize="12"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Быстрые действия -->
+            <Border Background="White"
+                    CornerRadius="12"
+                    BorderThickness="1"
+                    BorderBrush="#E5E7EB"
+                    Padding="24"
+                    Margin="0 0 0 24">
+                <StackPanel>
+                    <TextBlock Text="Быстрые действия" 
+                               FontSize="20" 
+                               FontWeight="SemiBold"
+                               Foreground="#1F2937"
+                               Margin="0 0 0 20"/>
+
+                    <WrapPanel>
+                        <Button Background="#3B82F6"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                BorderThickness="0"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="NewResidentButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" 
+                                            Background="{TemplateBinding Background}"
+                                            CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Opacity" Value="0.9"/>
+                                        </Trigger>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter TargetName="border" Property="Opacity" Value="0.8"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="➕" 
+                                           FontSize="16"
+                                           Margin="0 0 8 0"/>
+                                <TextBlock Text="Новый жилец"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="White"
+                                Foreground="#374151"
+                                BorderBrush="#D1D5DB"
+                                BorderThickness="1"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="GenerateInvoicesButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" 
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#F9FAFB"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📄" 
+                                           FontSize="16"
+                                           Margin="0 0 8 0"/>
+                                <TextBlock Text="Сформировать счета"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="White"
+                                Foreground="#374151"
+                                BorderBrush="#D1D5DB"
+                                BorderThickness="1"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="EnterReadingsButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" 
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#F9FAFB"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📊" 
+                                           FontSize="16"
+                                           Margin="0 0 8 0"/>
+                                <TextBlock Text="Ввести показания"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="White"
+                                Foreground="#374151"
+                                BorderBrush="#D1D5DB"
+                                BorderThickness="1"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="CreateReportButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" 
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="8">
+                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#F9FAFB"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📈" 
+                                           FontSize="16"
+                                           Margin="0 0 8 0"/>
+                                <TextBlock Text="Создать отчёт"/>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Последние активности -->
+            <Border Background="White"
+                    CornerRadius="12"
+                    BorderThickness="1"
+                    BorderBrush="#E5E7EB"
+                    Padding="24">
+                <StackPanel>
+                    <TextBlock Text="Последние активности" 
+                               FontSize="20" 
+                               FontWeight="SemiBold"
+                               Foreground="#1F2937"
+                               Margin="0 0 0 16"/>
+
+                    <StackPanel>
+                        <!-- Активность 1 -->
+                        <Border Padding="16" 
+                                Background="#F9FAFB" 
+                                CornerRadius="8"
+                                Margin="0 0 0 12">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="40" 
+                                        Height="40" 
+                                        Background="#E0E7FF" 
+                                        CornerRadius="20">
+                                    <TextBlock Text="👤" 
+                                               FontSize="18"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Margin="16 0 0 0">
+                                    <TextBlock Text="Иванов Иван зарегистрирован" 
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Сегодня, 10:30" 
+                                               Foreground="#6B7280" 
+                                               FontSize="13"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Активность 2 -->
+                        <Border Padding="16" 
+                                Background="#F9FAFB" 
+                                CornerRadius="8">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="40" 
+                                        Height="40" 
+                                        Background="#D1FAE5" 
+                                        CornerRadius="20">
+                                    <TextBlock Text="💰" 
+                                               FontSize="18"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Margin="16 0 0 0">
+                                    <TextBlock Text="Платёж от Петровой Марии" 
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Вчера, 15:45 • 12,500 ₽" 
+                                               Foreground="#6B7280" 
+                                               FontSize="13"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

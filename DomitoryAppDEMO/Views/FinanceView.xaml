@@ -1,0 +1,258 @@
+﻿<UserControl x:Class="DomitoryAppDEMO.Views.FinanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24">
+            <!-- Заголовок -->
+            <StackPanel Margin="0 0 0 24">
+                <TextBlock Text="Финансовый учёт" 
+                           FontSize="28" 
+                           FontWeight="SemiBold"
+                           Foreground="#1F2937"/>
+                <TextBlock Text="Управление платежами, счетами и финансовой отчётностью" 
+                           Foreground="#6B7280" 
+                           FontSize="16"
+                           Margin="0 4 0 0"/>
+            </StackPanel>
+
+            <!-- Финансовая сводка -->
+            <Grid Margin="0 0 0 24">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Доходы -->
+                <Border Grid.Column="0" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="24"
+                        Margin="0 0 12 0">
+                    <StackPanel>
+                        <TextBlock Text="📈" 
+                                   FontSize="32"
+                                   Margin="0 0 0 12"/>
+                        <TextBlock Text="452,340 ₽" 
+                                   FontSize="28" 
+                                   FontWeight="SemiBold"
+                                   Foreground="#10B981"/>
+                        <TextBlock Text="Доход за месяц" 
+                                   Foreground="#6B7280"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Расходы -->
+                <Border Grid.Column="1" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="24"
+                        Margin="6 0">
+                    <StackPanel>
+                        <TextBlock Text="📉" 
+                                   FontSize="32"
+                                   Margin="0 0 0 12"/>
+                        <TextBlock Text="187,650 ₽" 
+                                   FontSize="28" 
+                                   FontWeight="SemiBold"
+                                   Foreground="#EF4444"/>
+                        <TextBlock Text="Расходы за месяц" 
+                                   Foreground="#6B7280"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Прибыль -->
+                <Border Grid.Column="2" 
+                        Background="White"
+                        CornerRadius="12"
+                        BorderThickness="1"
+                        BorderBrush="#E5E7EB"
+                        Padding="24"
+                        Margin="12 0 0 0">
+                    <StackPanel>
+                        <TextBlock Text="💰" 
+                                   FontSize="32"
+                                   Margin="0 0 0 12"/>
+                        <TextBlock Text="264,690 ₽" 
+                                   FontSize="28" 
+                                   FontWeight="SemiBold"
+                                   Foreground="#3B82F6"/>
+                        <TextBlock Text="Чистая прибыль" 
+                                   Foreground="#6B7280"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Панель действий -->
+            <Border Background="White"
+                    CornerRadius="12"
+                    BorderThickness="1"
+                    BorderBrush="#E5E7EB"
+                    Padding="24"
+                    Margin="0 0 0 24">
+                <StackPanel>
+                    <TextBlock Text="Финансовые операции" 
+                               FontSize="18" 
+                               FontWeight="SemiBold"
+                               Margin="0 0 0 20"/>
+
+                    <WrapPanel>
+                        <Button Background="#3B82F6"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                BorderThickness="0"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="GenerateInvoicesButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🧾" Margin="0 0 8 0"/>
+                                <TextBlock Text="Сформировать счета"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="White"
+                                Foreground="#374151"
+                                BorderBrush="#D1D5DB"
+                                BorderThickness="1"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="RegisterPaymentButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="💳" Margin="0 0 8 0"/>
+                                <TextBlock Text="Зарегистрировать платёж"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Background="White"
+                                Foreground="#374151"
+                                BorderBrush="#D1D5DB"
+                                BorderThickness="1"
+                                Padding="16 12"
+                                Margin="0 0 12 12"
+                                Cursor="Hand"
+                                Click="ViewDebtorsButton_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="⚠️" Margin="0 0 8 0"/>
+                                <TextBlock Text="Просмотреть должников"/>
+                            </StackPanel>
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- Последние платежи -->
+            <Border Background="White"
+                    CornerRadius="12"
+                    BorderThickness="1"
+                    BorderBrush="#E5E7EB"
+                    Padding="24">
+                <StackPanel>
+                    <TextBlock Text="Последние платежи" 
+                               FontSize="18" 
+                               FontWeight="SemiBold"
+                               Margin="0 0 0 16"/>
+
+                    <StackPanel>
+                        <!-- Платёж 1 -->
+                        <Border Padding="16" 
+                                Background="#F9FAFB" 
+                                CornerRadius="8"
+                                Margin="0 0 0 12">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                                        Width="40" 
+                                        Height="40" 
+                                        Background="#D1FAE5" 
+                                        CornerRadius="20">
+                                    <TextBlock Text="💰" 
+                                               FontSize="18"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+
+                                <StackPanel Grid.Column="1" 
+                                            Margin="16 0">
+                                    <TextBlock Text="Иванов Иван Иванович" 
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Комната 205 • Договор №245" 
+                                               Foreground="#6B7280" 
+                                               FontSize="13"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" 
+                                            HorizontalAlignment="Right">
+                                    <TextBlock Text="12,500 ₽" 
+                                               FontWeight="SemiBold"
+                                               Foreground="#10B981"/>
+                                    <TextBlock Text="Сегодня, 10:30" 
+                                               Foreground="#6B7280" 
+                                               FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <!-- Платёж 2 -->
+                        <Border Padding="16" 
+                                Background="#F9FAFB" 
+                                CornerRadius="8">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Grid.Column="0"
+                                        Width="40" 
+                                        Height="40" 
+                                        Background="#D1FAE5" 
+                                        CornerRadius="20">
+                                    <TextBlock Text="💰" 
+                                               FontSize="18"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                </Border>
+
+                                <StackPanel Grid.Column="1" 
+                                            Margin="16 0">
+                                    <TextBlock Text="Петрова Мария Сергеевна" 
+                                               FontWeight="SemiBold"/>
+                                    <TextBlock Text="Комната 312 • Договор №189" 
+                                               Foreground="#6B7280" 
+                                               FontSize="13"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" 
+                                            HorizontalAlignment="Right">
+                                    <TextBlock Text="15,800 ₽" 
+                                               FontWeight="SemiBold"
+                                               Foreground="#10B981"/>
+                                    <TextBlock Text="Вчера, 15:45" 
+                                               Foreground="#6B7280" 
+                                               FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
